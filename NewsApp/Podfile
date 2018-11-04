@@ -1,0 +1,16 @@
+ platform :ios, '10.0'
+
+target 'NewsApp' do
+  use_frameworks!
+
+  pod 'Alamofire', '~> 4.7'
+  pod 'Kingfisher'
+
+  # Pods for NewsApp
+
+  target 'NewsAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

@@ -12,10 +12,16 @@ class NewsViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fetchNews()
         // Do any additional setup after loading the view.
     }
 
+    private func fetchNews()
+    {
+        NewsHelper.fetchAllNews(failure: failureBlock()) { (message) in
+            
+        }
+    }
 
     /*
     // MARK: - Navigation

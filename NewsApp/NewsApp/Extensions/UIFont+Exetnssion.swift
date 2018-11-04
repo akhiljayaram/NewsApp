@@ -10,6 +10,10 @@ import UIKit
 
 extension UIFont
 {
-    static var appFontName = ""
-
+    struct AppFont {
+        static let regular = "GothamRounded-Book"
+        static let medium = "GothamRounded-Medium"
+        static let bold = "GothamRounded-Bold"
+        
+    }
 }

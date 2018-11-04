@@ -5,6 +5,10 @@ target 'NewsApp' do
 
   pod 'Alamofire', '~> 4.7'
   pod 'Kingfisher'
+  pod 'ReachabilitySwift'
+  pod 'SwiftyJSON'
+  pod 'NVActivityIndicatorView'
+  pod 'SnapKit', '~> 4.0'
 
   # Pods for NewsApp
 

@@ -7,3 +7,6 @@
 //
 
 import Foundation
+
+let APIKey = "09829e983b6a4bcaa4aa6fe8f8be005f"
+let baseAPIUrl:String! = "https://newsapi.org/v2" // Sudhir

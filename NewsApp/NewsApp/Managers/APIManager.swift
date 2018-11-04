@@ -11,11 +11,11 @@ import Alamofire
 
 class APIManager {
 
-static func fetchNews(params:Parameters, failure:@escaping APICompletionBlock, success:@escaping APICompletionBlock)
+static func fetchNews(params:Parameters?, failure:@escaping APICompletionBlock, success:@escaping APICompletionBlock)
 {
-//    let url:String = baseAPIUrl+"/everything"
+    let url:String = baseAPIUrl+"/everything?q=dubai"
     
-    BaseAPIManager.make(url: "https://newsapi.org/v2/everything?q=bitcoin&apiKey=09829e983b6a4bcaa4aa6fe8f8be005f", parameters: params, needUserToken: false, failure: failure,  success: success)
+    BaseAPIManager.make(url:url, parameters: params, needUserToken: false, failure: failure,  success: success)
     
 }
 }

@@ -10,10 +10,11 @@ import Foundation
 
 class NewsHelper
 {
-    class func fetchAllNews(failure:@escaping APICompletionBlock,success:@escaping (_ message:String?) -> Void){
-        let params = [String:Any]()
-        APIManager.fetchNews(params: params, failure: failure){ (response) in
-            success(response.message)
+    class func fetchAllNews(failure:@escaping APICompletionBlock,success:@escaping (_ message:String?,_ newsFeedItems:[NewsFeed]) -> Void){
+        APIManager.fetchNews(params: nil, failure: failure){ (response) in
+            let articles = response.response["articles"].arrayValue.map{NewsFeed.init(json: $0)}
+//            let articleViewModels = articles.map{NewsFeedViewModel.init(feed: $0)}
+            success(response.message, articles)
         }
         
     }

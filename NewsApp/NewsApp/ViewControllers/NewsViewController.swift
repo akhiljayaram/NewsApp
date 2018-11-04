@@ -9,17 +9,30 @@
 import UIKit
 
 class NewsViewController: BaseViewController {
-
+    
+    @IBOutlet weak var tableView:UITableView!
+    var newsFeeds = [NewsFeed] ()
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerTableViewCell()
         fetchNews()
         // Do any additional setup after loading the view.
     }
 
+    func registerTableViewCell()
+    {
+    tableView.register(UINib.init(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
+
+    }
     private func fetchNews()
     {
-        NewsHelper.fetchAllNews(failure: failureBlock()) { (message) in
-            
+        NewsHelper.fetchAllNews(failure: failureBlock()) {[weak self] (message, newsFeedItems) in
+            guard let weakSelf = self else
+            {
+              return
+            }
+            weakSelf.newsFeeds = newsFeedItems
+            weakSelf.tableView.reloadData()
         }
     }
 
@@ -34,3 +47,27 @@ class NewsViewController: BaseViewController {
     */
 
 }
+extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
+ 
+ // MARK: - UITableViewDataSource Methods
+ 
+ func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+ return newsFeeds.count
+ }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
+    }
+ 
+ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+ let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
+ cell.feed = newsFeeds[indexPath.row]
+ return cell
+ }
+ 
+ // MARK: - UITableViewDelegate Methods
+ 
+ func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+ 
+
+ }
+ }

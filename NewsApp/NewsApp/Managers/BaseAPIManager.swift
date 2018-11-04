@@ -60,19 +60,19 @@ class BaseAPIManager {
      
         
         let authorization = "Bearer \(APIKey)"
-//        let headers: HTTPHeaders = [
-//            "x-api-key": authorization,
-//            "Accept": "application/json",
-//
-//        ]
-        let headers = [String:String]()
+        let headers: HTTPHeaders = [
+            "Authorization": authorization,
+            "Accept": "application/json",
+
+        ]
+//        let headers = [String:String]()
         Logger.logRequestParams(key: "request", url:url, header:headers, value: parameters ?? [:])
         
         let json = JSON.init(parameters as Any)
         Logger.logResponseParams(key: "requestP", value: json)
         
         
-        manager.request(url, method: method, parameters: nil, encoding: JSONEncoding.default, headers:headers).responseJSON( queue: queue, options: .allowFragments,completionHandler: { response in
+        manager.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON( queue: queue, options: .allowFragments,completionHandler: { response in
             if let status = response.response?.statusCode {
                 switch(status){
                 case 200:
@@ -80,7 +80,7 @@ class BaseAPIManager {
                     if let result = response.result.value {
                         let resultDictionary = result as! [String : Any]
                         let resultJSON = JSON(resultDictionary)
-                        Logger.logResponseParams(key: "Response", value: resultDictionary)
+                         Logger.logResponseParams(key: "Response", value: resultDictionary)
                         let code = resultDictionary["status"] as! String
                         
                         if(code == "ok") {

@@ -72,7 +72,7 @@ class BaseAPIManager {
         Logger.logResponseParams(key: "requestP", value: json)
         
         
-        manager.request(url, method: method, parameters: parameters, encoding: JSONEncoding.default, headers:headers).responseJSON( queue: queue, options: .allowFragments,completionHandler: { response in
+        manager.request(url, method: method, parameters: parameters, headers:headers).responseJSON( queue: queue, options: .allowFragments,completionHandler: { response in
             if let status = response.response?.statusCode {
                 switch(status){
                 case 200:

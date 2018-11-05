@@ -12,7 +12,11 @@ class NewsViewController: BaseViewController {
     
     @IBOutlet weak var tableView:UITableView!
     var newsFeeds = [NewsFeed] ()
+    var fetchingNews = false
+    
+    var totalAvailableNewsCount = 0
     override func viewDidLoad() {
+        title = "NEWS"
         super.viewDidLoad()
         configureCell()
         fetchNews()
@@ -27,16 +31,30 @@ class NewsViewController: BaseViewController {
     }
     private func fetchNews()
     {
-        NewsHelper.fetchAllNews(failure: failureBlock()) {[weak self] (message, newsFeedItems) in
+        startActivityIndicator()
+        fetchingNews = true
+        NewsHelper.fetchAllNews(page: nextPage, failure: failureBlock()) {[weak self] (message, newsFeedItems, totalAvailableNewsCount) in
+            
             guard let weakSelf = self else
             {
               return
             }
-            weakSelf.newsFeeds = newsFeedItems
+            weakSelf.totalAvailableNewsCount = totalAvailableNewsCount
+            weakSelf.newsFeeds.append(contentsOf: newsFeedItems)
             weakSelf.tableView.reloadData()
+            weakSelf.fetchingNews = false
+            weakSelf.stopActivityIndicator()
+
         }
     }
-
+    var shouldLoadMore:Bool
+    {
+        return totalAvailableNewsCount > newsFeeds.count
+    }
+    var nextPage:Int
+    {
+        return newsFeeds.count / NewsHelper.newsFeedPerPage
+    }
     /*
     // MARK: - Navigation
 
@@ -65,11 +83,20 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
  cell.feed = newsFeeds[indexPath.row]
  return cell
  }
- 
+    
+func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    let lastElement = newsFeeds.count - 1
+    if !fetchingNews && indexPath.row == lastElement && shouldLoadMore{
+        fetchNews()
+    }
+}
+   
  // MARK: - UITableViewDelegate Methods
  
  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
  
 
+    let vc = NewsDetailViewController.init(feed: newsFeeds[indexPath.row])
+    navigationController?.pushViewController(vc, animated: true)
  }
  }

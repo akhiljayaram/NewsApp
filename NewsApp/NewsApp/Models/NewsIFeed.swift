@@ -15,9 +15,17 @@ struct NewsFeed {
     var url = ""
     var content = ""
     var imageUrl = ""
-    var publishedAt = ""
-
     var publishedDate:Date?
+    var displayDateString:String
+    {
+        guard let date = publishedDate else
+        {
+         return ""
+        }
+       return date.timeAgoSinceDate()
+    }
+    
+
     
     init(json:JSON)
     {
@@ -27,7 +35,7 @@ struct NewsFeed {
         url = json["url"].stringValue
         content = json["content"].stringValue
         imageUrl = json["urlToImage"].stringValue
-        publishedAt = json["publishedAt"].stringValue
+        publishedDate = Date.init(dateString: json["publishedAt"].stringValue)
 
 
     }

@@ -30,7 +30,8 @@ class BaseViewController: UIViewController {
         
         let label = AppLabel.init(frame: .zero)
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         label.text = self.title
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
         return label

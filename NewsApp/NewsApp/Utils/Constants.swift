@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+enum DateFormats:String {
+    //2018-10-20T11:22:07Z
+    case apiFormatLong = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+    
+    case displayFormatLong = "dd MMM yyyy"
+
+}

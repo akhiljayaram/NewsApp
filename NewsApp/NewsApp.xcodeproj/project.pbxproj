@@ -22,7 +22,6 @@
 		1F1FBAD42190CE8900DDAB00 /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F1FBAD22190CE8900DDAB00 /* NewsDetailViewController.xib */; };
 		1F4EDA7D2190530400D5C431 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EDA7C2190530400D5C431 /* UIImageView+Extension.swift */; };
 		1FC2666E218F752400E61BE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC2666D218F752400E61BE4 /* AppDelegate.swift */; };
-		1FC26670218F752400E61BE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC2666F218F752400E61BE4 /* ViewController.swift */; };
 		1FC26673218F752400E61BE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC26671218F752400E61BE4 /* Main.storyboard */; };
 		1FC26675218F752600E61BE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FC26674218F752600E61BE4 /* Assets.xcassets */; };
 		1FC26678218F752600E61BE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FC26676218F752600E61BE4 /* LaunchScreen.storyboard */; };
@@ -75,7 +74,6 @@
 		1F4EDA7C2190530400D5C431 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		1FC2666A218F752400E61BE4 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FC2666D218F752400E61BE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1FC2666F218F752400E61BE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1FC26672218F752400E61BE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FC26674218F752600E61BE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FC26677218F752600E61BE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -166,6 +164,15 @@
 			path = NewsFeedsVC;
 			sourceTree = "<group>";
 		};
+		1F1FBAD52190E68A00DDAB00 /* NewsDetailVC */ = {
+			isa = PBXGroup;
+			children = (
+				1F1FBAD12190CE8900DDAB00 /* NewsDetailViewController.swift */,
+				1F1FBAD22190CE8900DDAB00 /* NewsDetailViewController.xib */,
+			);
+			path = NewsDetailVC;
+			sourceTree = "<group>";
+		};
 		1FC26661218F752300E61BE4 = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +206,6 @@
 				1FC2668E218F770100E61BE4 /* Models */,
 				1FC2668D218F76E500E61BE4 /* ViewControllers */,
 				1FC2666D218F752400E61BE4 /* AppDelegate.swift */,
-				1FC2666F218F752400E61BE4 /* ViewController.swift */,
 				1FC26671218F752400E61BE4 /* Main.storyboard */,
 				1FC26674218F752600E61BE4 /* Assets.xcassets */,
 				1FC26676218F752600E61BE4 /* LaunchScreen.storyboard */,
@@ -222,8 +228,7 @@
 			children = (
 				1FC26695218F782100E61BE4 /* BaseViewController.swift */,
 				1F1FBAD02190CE5000DDAB00 /* NewsFeedsVC */,
-				1F1FBAD12190CE8900DDAB00 /* NewsDetailViewController.swift */,
-				1F1FBAD22190CE8900DDAB00 /* NewsDetailViewController.xib */,
+				1F1FBAD52190E68A00DDAB00 /* NewsDetailVC */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NewsApp/Pods-NewsApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
@@ -423,6 +429,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
@@ -485,7 +492,6 @@
 				1FC266A8218F7AA900E61BE4 /* String+Extension.swift in Sources */,
 				1FC2669C218F78C300E61BE4 /* Constants.swift in Sources */,
 				1FC266AB218F7BDB00E61BE4 /* NewsViewController.swift in Sources */,
-				1FC26670218F752400E61BE4 /* ViewController.swift in Sources */,
 				1F10FE1F218F9464000C500F /* NewsIFeed.swift in Sources */,
 				1FC2666E218F752400E61BE4 /* AppDelegate.swift in Sources */,
 				1F10FE19218F860C000C500F /* UIView+Extension.swift in Sources */,

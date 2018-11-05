@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftyJSON
+
 class Logger {
     
    
@@ -29,7 +30,7 @@ class Logger {
     }
     static func logResponseParams(key:String, value:[String:Any])
     {
-        logResponseParams(key: key, value: JSON(value))
+//        logResponseParams(key: key, value: JSON(value))
         
         //           NSLog("%@:%@", key,Utils.getJsonText(parameters: value))
     }
@@ -38,14 +39,14 @@ class Logger {
     {
         let  string = NSString.init(format: "%@: %@ %@ %@", key,url,Utils.getJsonText(parameters: header), Utils.getJsonText(parameters: value))
         //        NSLog("%@: %@ %@ %@", key,url,Utils.getJsonText(parameters: header), Utils.getJsonText(parameters: value))
-                   print(string)
+//                   print(string)
     }
     static func logResponseParams(key:String, value:JSON)
     {
         let  string = NSString.init(format: "%@:%@", key,(value.rawString() ?? ""))
         
         //        NSLog("%@:%@", key,Utils.getJsonText(parameters: value))
-                   print(string)
+//                   print(string)
         
     }
     

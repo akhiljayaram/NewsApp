@@ -17,7 +17,7 @@ public enum CRNotificationType {
 	var color: UIColor {
 		switch self {
 		case .success: return UIColor.white
-		case .error: return UIColor.orange
+        case .error: return UIColor.init(netHex: 0x1f1f1f)
 		}
 	}
     var titleColor: UIColor {

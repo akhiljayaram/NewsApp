@@ -9,6 +9,7 @@ target 'NewsApp' do
   pod 'SwiftyJSON'
   pod 'NVActivityIndicatorView'
   pod 'SnapKit', '~> 4.0'
+  pod 'ESPullToRefresh'
 
   # Pods for NewsApp
 

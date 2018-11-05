@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ESPullToRefresh
 
 class NewsViewController: BaseViewController {
     
@@ -20,6 +21,13 @@ class NewsViewController: BaseViewController {
         super.viewDidLoad()
         configureCell()
         fetchNews()
+        tableView.es.addPullToRefresh {
+            [unowned self] in
+            
+            self.fetchNews(append: false)
+            self.tableView.es.stopPullToRefresh(ignoreDate: true)
+        }
+
         // Do any additional setup after loading the view.
     }
 
@@ -29,16 +37,21 @@ class NewsViewController: BaseViewController {
         tableView.rowHeight = UITableView.automaticDimension
 
     }
-    private func fetchNews()
+    private func fetchNews(append:Bool = true)
     {
         startActivityIndicator()
         fetchingNews = true
+        if !append
+        {
+           newsFeeds.removeAll()
+        }
         NewsHelper.fetchAllNews(page: nextPage, failure: failureBlock()) {[weak self] (message, newsFeedItems, totalAvailableNewsCount) in
             
             guard let weakSelf = self else
             {
               return
             }
+           
             weakSelf.totalAvailableNewsCount = totalAvailableNewsCount
             weakSelf.newsFeeds.append(contentsOf: newsFeedItems)
             weakSelf.tableView.reloadData()

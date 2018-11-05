@@ -26,16 +26,23 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = " "
         
     }
+//    func navigationTitleView() -> UIView {
+//
+//        let label = AppLabel.init(frame: .zero)
+//        label.textAlignment = .center
+//        label.textColor = .black
+//        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
+//        label.text = self.title
+//        label.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
+//        return label
+//    }
+
     func navigationTitleView() -> UIView {
         
-        let label = AppLabel.init(frame: .zero)
-        label.textAlignment = .center
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
-        label.text = self.title
-        label.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
-        return label
+        let imageView = UIImageView.init(frame: .zero)
+        imageView.frame = CGRect(x: 0, y: 0, width: 60, height: 26)
+        imageView.image = UIImage.init(named: "header")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }
-
-
 }

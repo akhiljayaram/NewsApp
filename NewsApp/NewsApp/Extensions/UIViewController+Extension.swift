@@ -31,7 +31,7 @@ extension UIViewController
         
         DispatchQueue.main.async {
            
-            NVActivityIndicatorView.DEFAULT_TYPE = .lineScalePulseOut
+            NVActivityIndicatorView.DEFAULT_TYPE = .ballScale
             NVActivityIndicatorView.DEFAULT_COLOR = UIColor.white
             NVActivityIndicatorView.DEFAULT_PADDING = 10
             

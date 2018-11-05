@@ -14,14 +14,15 @@ class NewsViewController: BaseViewController {
     var newsFeeds = [NewsFeed] ()
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerTableViewCell()
+        configureCell()
         fetchNews()
         // Do any additional setup after loading the view.
     }
 
-    func registerTableViewCell()
+    func configureCell()
     {
     tableView.register(UINib.init(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "NewsCell")
+        tableView.rowHeight = UITableView.automaticDimension
 
     }
     private func fetchNews()
@@ -55,7 +56,8 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
  return newsFeeds.count
  }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 220
+        return UITableView.automaticDimension
+
     }
  
  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

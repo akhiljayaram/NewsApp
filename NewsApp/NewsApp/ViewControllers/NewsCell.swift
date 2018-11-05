@@ -33,7 +33,8 @@ class NewsCell: UITableViewCell {
         descLabel.text = feed.description
 //        publishedAtLabel.text = feed.title
         authorLabel.text = feed.author
-
+        itemImageView.loadFromUrl(urlString: feed.imageUrl)
+        itemImageView.clipsToBounds = true
     }
     override func awakeFromNib() {
         super.awakeFromNib()

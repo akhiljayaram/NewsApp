@@ -26,8 +26,8 @@ struct NewsFeed {
         author = json["author"].stringValue
         url = json["url"].stringValue
         content = json["content"].stringValue
-        imageUrl = json["imageUrl"].stringValue
-        publishedAt = json["imageUrl"].stringValue
+        imageUrl = json["urlToImage"].stringValue
+        publishedAt = json["publishedAt"].stringValue
 
 
     }

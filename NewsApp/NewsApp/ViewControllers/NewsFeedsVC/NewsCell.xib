@@ -30,34 +30,48 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="282" height="180"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7i4-Pv-g9Z" customClass="AppLabel" customModule="NewsApp" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="157.5" width="31" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <rect key="frame" x="8" y="145.5" width="31.5" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFf-pg-zYB" userLabel="DateLabel" customClass="AppLabel" customModule="NewsApp" customModuleProvider="target">
-                                                <rect key="frame" x="243" y="157.5" width="31" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <rect key="frame" x="8" y="164" width="26.5" height="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" red="0.99215686270000003" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gag-mb-3jd">
+                                                <rect key="frame" x="232" y="130" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="GFt-g1-JLT"/>
+                                                    <constraint firstAttribute="height" constant="50" id="e6d-t2-VNN"/>
+                                                </constraints>
+                                                <state key="normal" image="share"/>
+                                                <connections>
+                                                    <action selector="tappedShareButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jaL-yR-6Xd"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="mFf-pg-zYB" firstAttribute="leading" secondItem="7i4-Pv-g9Z" secondAttribute="leading" id="25x-BT-BDZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gag-mb-3jd" secondAttribute="bottom" id="2Hl-Oi-dMz"/>
                                             <constraint firstAttribute="trailing" secondItem="Ech-IP-7gr" secondAttribute="trailing" priority="1" id="5SN-7o-pEk"/>
                                             <constraint firstAttribute="height" constant="180" id="7Rj-pf-12h"/>
+                                            <constraint firstAttribute="bottom" secondItem="mFf-pg-zYB" secondAttribute="bottom" constant="4" id="8NY-oo-kkS"/>
                                             <constraint firstItem="Ech-IP-7gr" firstAttribute="top" secondItem="2Q6-d1-Mpu" secondAttribute="top" id="My9-g9-aZh"/>
-                                            <constraint firstAttribute="bottom" secondItem="7i4-Pv-g9Z" secondAttribute="bottom" constant="8" id="QvN-Iq-AFU"/>
                                             <constraint firstItem="7i4-Pv-g9Z" firstAttribute="leading" secondItem="2Q6-d1-Mpu" secondAttribute="leading" constant="8" id="Y4S-2L-wlg"/>
-                                            <constraint firstAttribute="bottom" secondItem="mFf-pg-zYB" secondAttribute="bottom" constant="8" id="Z4M-Bk-TmB"/>
+                                            <constraint firstItem="mFf-pg-zYB" firstAttribute="top" secondItem="7i4-Pv-g9Z" secondAttribute="bottom" constant="4" id="Z0S-V4-K9d"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gag-mb-3jd" secondAttribute="trailing" id="h8l-kC-6Ob"/>
                                             <constraint firstItem="Ech-IP-7gr" firstAttribute="leading" secondItem="2Q6-d1-Mpu" secondAttribute="leading" id="maV-Lp-C0s"/>
-                                            <constraint firstAttribute="trailing" secondItem="mFf-pg-zYB" secondAttribute="trailing" constant="8" id="s8x-Fo-3zt"/>
                                             <constraint firstAttribute="bottom" secondItem="Ech-IP-7gr" secondAttribute="bottom" id="wYF-e3-7gh"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTx-eb-zmo">
                                         <rect key="frame" x="0.0" y="199.5" width="282" height="17"/>
                                         <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="17"/>
+                                        <color key="textColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CV-2i-dbo">
@@ -103,9 +117,13 @@
                 <outlet property="itemImageContainer" destination="2Q6-d1-Mpu" id="71k-HM-FFV"/>
                 <outlet property="itemImageView" destination="Ech-IP-7gr" id="92f-bT-7pa"/>
                 <outlet property="publishedAtLabel" destination="mFf-pg-zYB" id="l16-sF-XUp"/>
+                <outlet property="shareButton" destination="Gag-mb-3jd" id="Imz-OV-L2N"/>
                 <outlet property="titleLabel" destination="DTx-eb-zmo" id="GD7-0O-Osf"/>
             </connections>
             <point key="canvasLocation" x="152" y="242.42878560719643"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="share" width="17" height="18"/>
+    </resources>
 </document>

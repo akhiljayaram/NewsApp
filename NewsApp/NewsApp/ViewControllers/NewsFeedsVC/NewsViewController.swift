@@ -81,6 +81,7 @@ extension NewsViewController: UITableViewDataSource, UITableViewDelegate {
  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
  let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell") as! NewsCell
  cell.feed = newsFeeds[indexPath.row]
+    cell.delegate = self
  return cell
  }
     
@@ -100,3 +101,22 @@ func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forR
     navigationController?.pushViewController(vc, animated: true)
  }
  }
+
+extension NewsViewController:NewsCellDelegate
+{
+    func didPressShare(cell: NewsCell, feed: NewsFeed?) {
+        guard let urlString = feed?.url, let  url = URL.init(string:urlString) else
+        {
+            showErrorMessage(message: "Sorry! No url fo sharing")
+            return
+            
+        }
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+
+        activityViewController.excludedActivityTypes = [UIActivity.ActivityType.print]
+        self.present(activityViewController, animated: true, completion: nil)
+
+    }
+    
+    
+}

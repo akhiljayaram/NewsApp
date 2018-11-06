@@ -37,13 +37,13 @@ class Logger {
     
     static func logRequestParams(key:String,url:String,header:[String:Any], value:[String:Any])
     {
-        let  string = NSString.init(format: "%@: %@ %@ %@", key,url,Utils.getJsonText(parameters: header), Utils.getJsonText(parameters: value))
+//        let  string = NSString.init(format: "%@: %@ %@ %@", key,url,Utils.getJsonText(parameters: header), Utils.getJsonText(parameters: value))
         //        NSLog("%@: %@ %@ %@", key,url,Utils.getJsonText(parameters: header), Utils.getJsonText(parameters: value))
 //                   print(string)
     }
     static func logResponseParams(key:String, value:JSON)
     {
-        let  string = NSString.init(format: "%@:%@", key,(value.rawString() ?? ""))
+//        let  string = NSString.init(format: "%@:%@", key,(value.rawString() ?? ""))
         
         //        NSLog("%@:%@", key,Utils.getJsonText(parameters: value))
 //                   print(string)
